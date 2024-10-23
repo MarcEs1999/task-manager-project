@@ -157,12 +157,14 @@ main {
     color: #f5f5f5; 
     margin-bottom: 20px; 
     text-align: left; 
+    font-size: 2rem;
 }
 
 .about-section p {
     color: #e0e0e0; 
     line-height: 1.8; 
     margin-bottom: 15px; 
+    font-size: 1.5rem;
 }
 
 /* Team Overview Section */
@@ -178,12 +180,14 @@ main {
     color: #f5f5f5; 
     text-align: center;
     margin-bottom: 20px;
+    font-size: 2rem;
 }
 
 .team-overview p {
     color: #e0e0e0;
     margin-bottom: 20px;
     line-height: 1.8;
+    font-size: 1.5rem;
 }
 
 .team-overview ul {
@@ -191,6 +195,7 @@ main {
     list-style-position: inside;
     color: #f5f5f5;
     display: inline-block;
+    font-size: 1.3rem;
 
 }
 
@@ -318,6 +323,7 @@ hr {
 .storyboard-section h2 {
     color: #e0e0e0;
     margin-bottom: 15px;
+    
 }
 
 .image-container {
@@ -350,7 +356,7 @@ hr {
 }
 
 .moodboard-image {
-    width: 80%; /* Scales with the page */
+    width: 100%; /* Scales with the page */
     max-width: 900px;
     height: auto;
     border-radius: 8px;
