@@ -1,0 +1,420 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0b0c10;
+    color: #c5c6c7; 
+    font-size: 16px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styles */
+header {
+    background-color: #1f2833;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #66fcf1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add some depth */
+    margin-bottom: 15px;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+header img {
+    margin-top: 10px;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+header p {
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+/* Team Info Section */
+#team-info {
+    padding: 20px;
+    text-align: center;
+    background-color: #20232a; /* Darker background for sections */
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.team-members {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.team-member {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; 
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+}
+
+.team-member p {
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
+
+/* Tabs Navigation */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 0;
+    background-color: #0b0c10; /* Black background for nav */
+}
+
+nav ul li {
+    padding: 15px 20px;
+    color: #c5c6c7;
+    background-color: #0b0c10;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+nav ul li:hover {
+    background-color: #3a3f47; /* Darker blue-gray on hover */
+}
+
+nav ul li.active {
+    nav ul li.active {
+        background-color: #1f2833;
+        font-weight: bold; /* Make active tab text bold */
+        border-bottom: 2px solid #66fcf1; /* Light blue underline */
+    }
+    
+}
+
+/* Main Content Section */
+main {
+    flex: 1;
+    margin: 20px;
+    padding: 20px;
+    background-color: #1b1e23;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Tab Content Styles */
+.tab-content {
+    display: none;
+    padding: 20px;
+    background-color: #1f2833;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+/* Show only the active tab content */
+.tab-content.active {
+    text-align: center;
+    display: block;
+}
+
+/*=================================================================*/
+
+/* About Section Styling */
+.about-section {
+    margin: 20px;
+    padding: 25px;
+    background-color: #2b3e50; 
+    border-radius: 12px; 
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+}
+
+.about-section h2 {
+    color: #f5f5f5; 
+    margin-bottom: 20px; 
+    text-align: left; 
+}
+
+.about-section p {
+    color: #e0e0e0; 
+    line-height: 1.8; 
+    margin-bottom: 15px; 
+}
+
+/* Team Overview Section */
+.team-overview {
+    margin-top: 30px;
+    padding: 25px;
+    background-color: #2b3e50; 
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+}
+
+.team-overview h2 {
+    color: #f5f5f5; 
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.team-overview p {
+    color: #e0e0e0;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.team-overview ul {
+    padding-left: 40px;
+    list-style-position: inside;
+    color: #f5f5f5;
+    display: inline-block;
+
+}
+
+.team-overview ul li {
+    line-height: 1.8;
+    margin-bottom: 5px; 
+    color: #f5f5f5;
+    text-align: left;
+}
+
+/* Hover Effect for Consistency */
+.about-section:hover, .team-overview:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+}
+
+/*=================================================================*/
+
+/* Individual Persona Styles */
+.persona {
+    margin-bottom: 50px;
+    padding: 25px;
+    background-color: #2b3e50;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    font-size: 1.2rem;
+}
+
+/* Persona Header and Image */
+.persona-header {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 100%; 
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+}
+
+.persona-image {
+    width:15%;
+    height: auto;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.7);
+    margin-right: 25px;
+    display: block;
+}
+
+/* Persona Details */
+.persona-info {
+    flex: 1;
+}
+
+.persona-details {
+    margin-top: 10px;
+    width: 100%;
+    font-size: 1.1rem;
+}
+
+.persona-details h3 {
+    color: #f5f5f5;
+    margin: 10px 0;
+}
+
+.persona-details ul {
+    margin: 15px 0;
+    padding-left: 40px; /* Align bullets with other text */
+    list-style-type: disc;
+}
+
+.persona-details ul li {
+    line-height: 1.8;
+    margin-bottom: 5px;
+}
+
+/* Bullet Points Fix for Alignment */
+.persona-details ul {
+    list-style-position: inside; 
+}
+
+/* Horizontal Rule Styling */
+hr {
+    border: none;
+    height: 2px;
+    background-color: #0d1a2b;
+    margin: 50px 0;
+}
+
+/*=================================================================*/
+
+/* Scenario Page Styles */
+.scenario-section {
+    background-color: #2b3e50;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+.scenario-image {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+}
+
+/* Storyboard Section Styles */
+.storyboard-section {
+    margin-bottom: 40px;
+    background-color: #2b3e50; /* Match the theme */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    color: #e0e0e0;
+}
+
+.storyboard-section h2 {
+    color: #e0e0e0;
+    margin-bottom: 15px;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* spacing between storyboards */
+.storyboard-section p {
+    margin-top: 15px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/*=================================================================*/
+
+/* Moodboard section */
+
+.moodboard-section {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.moodboard-image {
+    width: 80%; /* Scales with the page */
+    max-width: 900px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+/*=================================================================*/
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #0b0c10;
+    color: #c5c6c7;
+    font-size: 1rem;
+    margin-top: auto;
+    width: 100%;
+}
+
+/*=================================================================*/
+
+/* Media Query for Tablets */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    .team-members {
+        flex-direction: column;
+    }
+
+    .team-member img {
+        width: 120px;
+        height: 120px;
+    }
+
+    nav ul li {
+        flex: 1 1 45%;
+        margin-bottom: 5px;
+    }
+    .scenario-image {
+        max-width: 90%;
+    }
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 480px) {
+    body {
+        font-size: 12px;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    .team-member img {
+        width: 100px;
+        height: 100px;
+    }
+
+    nav ul li {
+        flex: 1 1 100%;
+    }
+    .scenario-image {
+        max-width: 100%;
+    }
+}
