@@ -1,17 +1,12 @@
 // JavaScript to handle tab switching
 function openTab(event, tabId) {
-    // Hide all tab contents
     const tabContents = document.querySelectorAll('.tab-content');
     tabContents.forEach(content => content.classList.remove('active'));
 
-    // Remove the active class from all tabs
     const tabs = document.querySelectorAll('.tab');
     tabs.forEach(tab => tab.classList.remove('active'));
 
-    // Show the selected tab content
     document.getElementById(tabId).classList.add('active');
-    
-    // Add the active class to the clicked tab
     event.currentTarget.classList.add('active');
 }
 
@@ -27,55 +22,67 @@ function loadContent(contentFile) {
     xhr.send();
 }
 
-// JavaScript to handle tab switching and content loading
-function openTab(event, tabId) {
-    // Remove the active class from all tabs
-    const tabs = document.querySelectorAll('.tab');
-    tabs.forEach(tab => tab.classList.remove('active'));
+// Login Functionality
+function showMainScreen() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
 
-    // Add the active class to the clicked tab
-    event.currentTarget.classList.add('active');
-
-    // Show the selected tab content in the main-content section
-    let contentFile = '';
-    switch(tabId) {
-        case 'about':
-            contentFile = 'about.html';
-            break;
-        case 'research':
-            contentFile = 'research.html';
-            break;
-        case 'personas':
-            contentFile = 'personas.html';
-            break;
-        case 'scenario':
-            contentFile = 'scenario.html';
-            break;
-        case 'storyboard':
-            contentFile = 'storyboard.html';
-            break;
-        case 'moodboard':
-            contentFile = 'moodboard.html';
-            break;
-        case 'flowchart':
-            contentFile = 'flowchart.html';
-            break;
-        case 'wireframes':
-            contentFile = 'wireframes.html';
-            break;
-        case 'gui':
-            contentFile = 'gui.html';
-            break;
-        case 'prototype':
-            contentFile = 'prototype.html';
-            break;
-        case 'references':
-            contentFile = 'references.html';
-            break;
-    }
-
-    // Load content into the main content area
-    if (contentFile) {
-        loadContent(contentFile);
+    if (username === "testUser" && password === "1234") {
+        document.getElementById('login-screen').classList.remove('active');
+        document.getElementById('task-list-screen').classList.add('active');
+    } else {
+        alert("Incorrect Username or Password. Please try again.");
     }
 }
+
+// Navigation Functions
+function showAddTaskScreen() {
+    document.getElementById('task-list-screen').classList.remove('active');
+    document.getElementById('add-task-screen').classList.add('active');
+}
+
+function showTaskListScreen() {
+    document.getElementById('add-task-screen').classList.remove('active');
+    document.getElementById('calendar-screen').classList.remove('active');
+    document.getElementById('task-list-screen').classList.add('active');
+}
+
+function showCalendarScreen() {
+    document.getElementById('task-list-screen').classList.remove('active');
+    document.getElementById('calendar-screen').classList.add('active');
+}
+
+// Add Task Functionality
+function addTask() {
+    const taskName = document.getElementById('task-name').value;
+    const taskPriority = document.getElementById('task-priority').value;
+    const taskDate = document.getElementById('task-date').value;
+    const taskTime = document.getElementById('task-time').value;
+    const taskDesc = document.getElementById('task-desc').value;
+
+    if (taskName && taskPriority && taskDate && taskTime && taskDesc) {
+        const taskList = document.getElementById('task-items');
+        const newTask = document.createElement('li');
+        newTask.textContent = `${taskName} (Priority: ${taskPriority}) - Due: ${taskDate} at ${taskTime}`;
+        taskList.appendChild(newTask);
+        showTaskListScreen();
+    }
+}
+
+// Calendar Initialization
+function initializeCalendar() {
+    const calendarEl = document.getElementById('calendar');
+    if (calendarEl) {
+        flatpickr(calendarEl, {
+            inline: true,
+            onChange: function(selectedDates) {
+                console.log('Selected date:', selectedDates);
+            }
+        });
+    }
+}
+
+// Initialize Calendar after page load
+window.onload = function() {
+    initializeCalendar();
+};

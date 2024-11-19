@@ -365,6 +365,209 @@ hr {
 
 /*=================================================================*/
 
+/* CSS for Flowchart Page */
+
+.flowchart-section {
+    margin: 20px;
+    padding: 20px;
+    background-color: #2b3e50;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+.flowchart-section h2 {
+    color: #f5f5f5;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.7);
+}
+
+/*=================================================================*/
+
+/* CSS for Wireframe Page */
+.wireframe-section {
+    margin: 20px;
+    padding: 20px;
+    background-color: #2b3e50;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+.wireframe-section h2 {
+    color: #f5f5f5;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.wireframe-img {
+    width: 50%; 
+    max-width: 500px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.7);
+}
+
+/*=================================================================*/
+
+/* Prototype Section Styles */
+.prototype-section {
+    margin: 20px;
+    padding: 20px;
+    background-color: #2b3e50;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+.prototype-section h2 {
+    color: #66fcf1;
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+}
+
+.prototype-screen {
+    display: none;
+}
+
+.prototype-screen.active {
+    display: block;
+}
+
+/* Form Styles for Login and Add Task */
+form {
+    margin: 0 auto;
+    max-width: 400px;
+    background-color: #1f2833;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="number"],
+form input[type="date"],
+form input[type="time"],
+form textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+form button {
+    background-color: #66fcf1;
+    color: #1f2833;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    width: 100%;
+}
+
+form button:hover {
+    background-color: #45a29e;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: left;
+    color: #c5c6c7;
+}
+
+/* Task List Styles */
+#task-list {
+    background-color: #1f2833;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+#task-items {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#task-items li {
+    background-color: #0b0c10;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    color: #66fcf1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Button Styles for Screens */
+.prototype-section button {
+    background-color: #66fcf1;
+    color: #1f2833;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    width: auto;
+}
+
+.prototype-section button:hover {
+    background-color: #45a29e;
+}
+
+/* Calendar Screen Styles */
+#calendar-screen {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #1f2833;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+#calendar-screen.active {
+    display: block;
+}
+
+#calendar-screen img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/*=================================================================*/
+
 /* Footer */
 footer {
     text-align: center;
@@ -400,6 +603,22 @@ footer {
     .scenario-image {
         max-width: 90%;
     }
+        form {
+        max-width: 100%;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+    }
+
+    nav ul li {
+        flex: 1 1 45%;
+        margin-bottom: 5px;
+    }
+
+    #task-items li {
+        font-size: 1rem;
+    }
 }
 
 /* Media Query for Mobile Devices */
@@ -422,5 +641,27 @@ footer {
     }
     .scenario-image {
         max-width: 100%;
+    }
+    
+    nav ul {
+        flex-direction: column;
+    }
+
+    form input[type="text"],
+    form input[type="password"],
+    form input[type="number"],
+    form input[type="date"],
+    form input[type="time"],
+    form textarea {
+        width: calc(100% - 10px);
+        padding: 8px;
+    }
+
+    nav ul li {
+        flex: 1 1 100%;
+    }
+
+    #task-items li {
+        font-size: 0.9rem;
     }
 }
