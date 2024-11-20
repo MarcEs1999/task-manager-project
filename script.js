@@ -1,13 +1,18 @@
 // JavaScript to handle tab switching
 function openTab(event, tabId) {
-    const tabContents = document.querySelectorAll('.tab-content');
-    tabContents.forEach(content => content.classList.remove('active'));
+    const tabContent = document.getElementById(tabId);
+    if (tabContent) {
+        const tabContents = document.querySelectorAll('.tab-content');
+        tabContents.forEach(content => content.classList.remove('active'));
 
-    const tabs = document.querySelectorAll('.tab');
-    tabs.forEach(tab => tab.classList.remove('active'));
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(tab => tab.classList.remove('active'));
 
-    document.getElementById(tabId).classList.add('active');
-    event.currentTarget.classList.add('active');
+        tabContent.classList.add('active');
+        event.currentTarget.classList.add('active');
+    } else {
+        console.error(`No element found with id ${tabId}`);
+    }
 }
 
 // Function to load external HTML content for each tab
