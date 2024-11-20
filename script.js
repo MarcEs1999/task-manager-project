@@ -1,18 +1,12 @@
-// JavaScript to handle tab switching
+// JavaScript to handle tab switching and load content
 function openTab(event, tabId) {
-    const tabContent = document.getElementById(tabId);
-    if (tabContent) {
-        const tabContents = document.querySelectorAll('.tab-content');
-        tabContents.forEach(content => content.classList.remove('active'));
-
-        const tabs = document.querySelectorAll('.tab');
-        tabs.forEach(tab => tab.classList.remove('active'));
-
-        tabContent.classList.add('active');
-        event.currentTarget.classList.add('active');
-    } else {
-        console.error(`No element found with id ${tabId}`);
-    }
+    loadContent(`${tabId}.html`); // Load the HTML content of the selected tab
+    
+    // Update active classes for the tabs
+    const tabs = document.querySelectorAll('.tab');
+    tabs.forEach(tab => tab.classList.remove('active'));
+    
+    event.currentTarget.classList.add('active');
 }
 
 // Function to load external HTML content for each tab
@@ -22,10 +16,17 @@ function loadContent(contentFile) {
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             document.getElementById('main-content').innerHTML = xhr.responseText;
+        } else if (xhr.readyState === 4) {
+            document.getElementById('main-content').innerHTML = '<p>Error loading content. Please try again later.</p>';
         }
     };
     xhr.send();
 }
+
+// Load the initial content on page load
+window.onload = function() {
+    loadContent('about.html'); // Load the default 'about.html' when the page first loads
+};
 
 // Login Functionality
 function showMainScreen() {
