@@ -69,11 +69,51 @@ function addTask() {
     if (taskName && taskPriority && taskDate && taskTime && taskDesc) {
         const taskList = document.getElementById('task-items');
         const newTask = document.createElement('li');
-        newTask.textContent = `${taskName} (Priority: ${taskPriority}) - Due: ${taskDate} at ${taskTime}`;
+
+        newTask.classList.add('task-item'); // Add a class for styling
+        newTask.innerHTML = `
+            <span>${taskName} (Priority: ${taskPriority}) - Due: ${taskDate} at ${taskTime}</span>
+            <button class="delete-task-btn" onclick="deleteTask(this)">Delete</button>
+        `;
+
         taskList.appendChild(newTask);
+        saveTasksToLocalStorage();
         showTaskListScreen();
     }
 }
+
+function deleteTask(button) {
+    const taskItem = button.parentElement;
+    taskItem.remove();
+    saveTasksToLocalStorage();
+}
+
+function saveTasksToLocalStorage() {
+    const tasks = Array.from(document.querySelectorAll('#task-items .task-item')).map(item => item.querySelector('span').textContent);
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+function loadTasksFromLocalStorage() {
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    const taskList = document.getElementById('task-items');
+    taskList.innerHTML = '';
+
+    tasks.forEach(taskText => {
+        const newTask = document.createElement('li');
+        newTask.classList.add('task-item');
+        newTask.innerHTML = `
+            <span>${taskText}</span>
+            <button class="delete-task-btn" onclick="deleteTask(this)">Delete</button>
+        `;
+        taskList.appendChild(newTask);
+    });
+}
+
+window.onload = function() {
+    loadTasksFromLocalStorage();
+    initializeCalendar();
+};
+
 
 // Calendar Initialization
 function initializeCalendar() {
