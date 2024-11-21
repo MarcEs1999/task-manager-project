@@ -23,13 +23,6 @@ function loadContent(contentFile) {
     xhr.send();
 }
 
-// Load the initial content on page load
-window.onload = function () {
-    loadContent('about.html'); // Load the default 'about.html' when the page first loads
-    initializeCalendar();
-    loadTasks();
-};
-
 // Add Task Functionality
 function addTask() {
     const taskName = document.getElementById('task-name').value;
@@ -87,26 +80,30 @@ function saveTasks() {
 function loadTasks() {
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     const taskList = document.getElementById('task-items');
-    taskList.innerHTML = ''; // Clear the existing tasks
-    tasks.forEach(task => {
-        const newTask = document.createElement('li');
-        newTask.className = 'task-item';
-        newTask.id = `task-${task.taskId}`;
-        newTask.innerHTML = `
-            <div class="task-header">
-                <strong>${task.taskName}</strong>
-                <span class="task-date">${task.taskDate}</span>
-            </div>
-            <div class="task-priority">
-                Priority: ${task.taskPriority}
-            </div>
-            <div class="task-desc">
-                ${task.taskDesc}
-            </div>
-            <button onclick="deleteTask(${task.taskId})">Delete</button>
-        `;
-        taskList.appendChild(newTask);
-    });
+    if (taskList) {
+        taskList.innerHTML = ''; // Clear the existing tasks
+        tasks.forEach(task => {
+            const newTask = document.createElement('li');
+            newTask.className = 'task-item';
+            newTask.id = `task-${task.taskId}`;
+            newTask.innerHTML = `
+                <div class="task-header">
+                    <strong>${task.taskName}</strong>
+                    <span class="task-date">${task.taskDate}</span>
+                </div>
+                <div class="task-priority">
+                    Priority: ${task.taskPriority}
+                </div>
+                <div class="task-desc">
+                    ${task.taskDesc}
+                </div>
+                <button onclick="deleteTask(${task.taskId})">Delete</button>
+            `;
+            taskList.appendChild(newTask);
+        });
+    } else {
+        console.error("Task list element not found.");
+    }
 }
 
 // Delete Task
@@ -114,7 +111,10 @@ function deleteTask(taskId) {
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     tasks = tasks.filter(task => task.taskId != taskId);
     localStorage.setItem('tasks', JSON.stringify(tasks));
-    document.getElementById(`task-${taskId}`).remove();
+    const taskElement = document.getElementById(`task-${taskId}`);
+    if (taskElement) {
+        taskElement.remove();
+    }
 }
 
 // Calendar Initialization
@@ -131,5 +131,18 @@ function initializeCalendar() {
         }
     } else {
         console.error("flatpickr is not defined. Make sure you have included the flatpickr library.");
+    }
+}
+
+// Show Main Screen Functionality (for login)
+function showMainScreen() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    if (username === "testUser" && password === "1234") {
+        document.getElementById('login-screen').classList.remove('active');
+        document.getElementById('task-list-screen').classList.add('active');
+    } else {
+        alert("Incorrect Username or Password. Please try again.");
     }
 }
