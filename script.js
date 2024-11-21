@@ -39,51 +39,71 @@ function addTask() {
     const taskDesc = document.getElementById('task-desc').value;
 
     if (taskName && taskPriority && taskDate && taskTime && taskDesc) {
+        const taskId = Date.now(); // Generate a unique ID based on current time
         const taskList = document.getElementById('task-items');
-        const taskId = `task-${Date.now()}`; // Unique task ID
 
-        // Create a new task element
-        const newTask = document.createElement('div');
-        newTask.classList.add('task-item');
-        newTask.id = taskId;
-        newTask.innerHTML = `
-            <div class="task-info">
-                <strong>${taskName}</strong><br>
-                <span>${taskDesc}</span><br>
-                <span><strong>Due:</strong> ${new Date(taskDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} at ${taskTime}</span>
+        const newTask = document.createElement('li');
+        newTask.className = 'task-item'; // Add class for styling
+        newTask.id = `task-${taskId}`; // Assign unique ID to the element
+
+        // Create a container for the task details
+        const taskDetails = `
+            <div class="task-header">
+                <strong>${taskName}</strong>
+                <span class="task-date">${new Date(taskDate).toDateString()} ${taskTime}</span>
             </div>
-            <button class="delete-task" onclick="deleteTask('${taskId}')">Delete</button>
+            <div class="task-priority">
+                Priority: ${taskPriority}
+            </div>
+            <div class="task-desc">
+                ${taskDesc}
+            </div>
+            <button onclick="deleteTask(${taskId})">Delete</button>
         `;
+        newTask.innerHTML = taskDetails;
 
         taskList.appendChild(newTask);
-        saveTask(taskId, taskName, taskPriority, taskDate, taskTime, taskDesc);
-        showTaskListScreen();
+        saveTasks(); // Save to localStorage to persist data
     }
 }
 
-// Save Task to localStorage
-function saveTask(taskId, taskName, taskPriority, taskDate, taskTime, taskDesc) {
-    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-    tasks.push({ taskId, taskName, taskPriority, taskDate, taskTime, taskDesc });
+// Save all tasks to localStorage
+function saveTasks() {
+    let tasks = [];
+    const taskItems = document.querySelectorAll('#task-items .task-item');
+    taskItems.forEach(item => {
+        const taskId = item.id.replace('task-', ''); // Remove the prefix 'task-'
+        const taskName = item.querySelector('strong').innerText;
+        const taskPriority = item.querySelector('.task-priority').innerText.replace('Priority: ', '');
+        const taskDate = item.querySelector('.task-date').innerText;
+        const taskDesc = item.querySelector('.task-desc').innerText;
+
+        tasks.push({ taskId, taskName, taskPriority, taskDate, taskDesc });
+    });
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-// Load Tasks from localStorage
+// Load tasks from localStorage
 function loadTasks() {
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     const taskList = document.getElementById('task-items');
-
+    taskList.innerHTML = ''; // Clear the existing tasks
     tasks.forEach(task => {
-        const newTask = document.createElement('div');
-        newTask.classList.add('task-item');
-        newTask.id = task.taskId;
+        const newTask = document.createElement('li');
+        newTask.className = 'task-item';
+        newTask.id = `task-${task.taskId}`;
         newTask.innerHTML = `
-            <div class="task-info">
-                <strong>${task.taskName}</strong><br>
-                <span>${task.taskDesc}</span><br>
-                <span><strong>Due:</strong> ${new Date(task.taskDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} at ${task.taskTime}</span>
+            <div class="task-header">
+                <strong>${task.taskName}</strong>
+                <span class="task-date">${task.taskDate}</span>
             </div>
-            <button class="delete-task" onclick="deleteTask('${task.taskId}')">Delete</button>
+            <div class="task-priority">
+                Priority: ${task.taskPriority}
+            </div>
+            <div class="task-desc">
+                ${task.taskDesc}
+            </div>
+            <button onclick="deleteTask(${task.taskId})">Delete</button>
         `;
         taskList.appendChild(newTask);
     });
@@ -92,9 +112,9 @@ function loadTasks() {
 // Delete Task
 function deleteTask(taskId) {
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-    tasks = tasks.filter(task => task.taskId !== taskId);
+    tasks = tasks.filter(task => task.taskId != taskId);
     localStorage.setItem('tasks', JSON.stringify(tasks));
-    document.getElementById(taskId).remove();
+    document.getElementById(`task-${taskId}`).remove();
 }
 
 // Calendar Initialization
