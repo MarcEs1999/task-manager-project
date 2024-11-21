@@ -26,8 +26,9 @@ function loadContent(contentFile) {
 // Load the initial content on page load
 window.onload = function() {
     loadContent('about.html'); // Load the default 'about.html' when the page first loads
+    loadTasksFromLocalStorage(); // Load tasks when the page loads
+    initializeCalendar();
 };
-
 // Login Functionality
 function showMainScreen() {
     const username = document.getElementById('username').value;
@@ -69,30 +70,31 @@ function addTask() {
     if (taskName && taskPriority && taskDate && taskTime && taskDesc) {
         const taskList = document.getElementById('task-items');
         const newTask = document.createElement('li');
-
-        newTask.classList.add('task-item'); // Add a class for styling
+        newTask.classList.add('task-item');
         newTask.innerHTML = `
             <span>${taskName} (Priority: ${taskPriority}) - Due: ${taskDate} at ${taskTime}</span>
             <button class="delete-task-btn" onclick="deleteTask(this)">Delete</button>
         `;
-
         taskList.appendChild(newTask);
-        saveTasksToLocalStorage();
+        saveTasksToLocalStorage(); // Save tasks after adding
         showTaskListScreen();
     }
 }
 
+// Delete Task Functionality
 function deleteTask(button) {
     const taskItem = button.parentElement;
     taskItem.remove();
     saveTasksToLocalStorage();
 }
 
+// Save Tasks to LocalStorage
 function saveTasksToLocalStorage() {
     const tasks = Array.from(document.querySelectorAll('#task-items .task-item')).map(item => item.querySelector('span').textContent);
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
+// Load Tasks from LocalStorage
 function loadTasksFromLocalStorage() {
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     const taskList = document.getElementById('task-items');
