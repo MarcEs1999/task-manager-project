@@ -1,11 +1,11 @@
 // JavaScript to handle tab switching and load content
 function openTab(event, tabId) {
     loadContent(`${tabId}.html`); // Load the HTML content of the selected tab
-    
+
     // Update active classes for the tabs
     const tabs = document.querySelectorAll('.tab');
     tabs.forEach(tab => tab.classList.remove('active'));
-    
+
     event.currentTarget.classList.add('active');
 }
 
@@ -13,7 +13,7 @@ function openTab(event, tabId) {
 function loadContent(contentFile) {
     const xhr = new XMLHttpRequest();
     xhr.open('GET', contentFile, true);
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             document.getElementById('main-content').innerHTML = xhr.responseText;
         } else if (xhr.readyState === 4) {
@@ -24,40 +24,11 @@ function loadContent(contentFile) {
 }
 
 // Load the initial content on page load
-window.onload = function() {
+window.onload = function () {
     loadContent('about.html'); // Load the default 'about.html' when the page first loads
-    loadTasksFromLocalStorage(); // Load tasks when the page loads
     initializeCalendar();
+    loadTasks();
 };
-// Login Functionality
-function showMainScreen() {
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-    if (username === "testUser" && password === "1234") {
-        document.getElementById('login-screen').classList.remove('active');
-        document.getElementById('task-list-screen').classList.add('active');
-    } else {
-        alert("Incorrect Username or Password. Please try again.");
-    }
-}
-
-// Navigation Functions
-function showAddTaskScreen() {
-    document.getElementById('task-list-screen').classList.remove('active');
-    document.getElementById('add-task-screen').classList.add('active');
-}
-
-function showTaskListScreen() {
-    document.getElementById('add-task-screen').classList.remove('active');
-    document.getElementById('calendar-screen').classList.remove('active');
-    document.getElementById('task-list-screen').classList.add('active');
-}
-
-function showCalendarScreen() {
-    document.getElementById('task-list-screen').classList.remove('active');
-    document.getElementById('calendar-screen').classList.add('active');
-}
 
 // Add Task Functionality
 function addTask() {
@@ -69,68 +40,76 @@ function addTask() {
 
     if (taskName && taskPriority && taskDate && taskTime && taskDesc) {
         const taskList = document.getElementById('task-items');
-        const newTask = document.createElement('li');
+        const taskId = `task-${Date.now()}`; // Unique task ID
+
+        // Create a new task element
+        const newTask = document.createElement('div');
         newTask.classList.add('task-item');
+        newTask.id = taskId;
         newTask.innerHTML = `
-            <span>${taskName} (Priority: ${taskPriority}) - Due: ${taskDate} at ${taskTime}</span>
-            <button class="delete-task-btn" onclick="deleteTask(this)">Delete</button>
+            <div class="task-info">
+                <strong>${taskName}</strong><br>
+                <span>${taskDesc}</span><br>
+                <span><strong>Due:</strong> ${new Date(taskDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} at ${taskTime}</span>
+            </div>
+            <button class="delete-task" onclick="deleteTask('${taskId}')">Delete</button>
         `;
+
         taskList.appendChild(newTask);
-        saveTasksToLocalStorage(); // Save tasks after adding
+        saveTask(taskId, taskName, taskPriority, taskDate, taskTime, taskDesc);
         showTaskListScreen();
     }
 }
 
-// Delete Task Functionality
-function deleteTask(button) {
-    const taskItem = button.parentElement;
-    taskItem.remove();
-    saveTasksToLocalStorage();
-}
-
-// Save Tasks to LocalStorage
-function saveTasksToLocalStorage() {
-    const tasks = Array.from(document.querySelectorAll('#task-items .task-item')).map(item => item.querySelector('span').textContent);
+// Save Task to localStorage
+function saveTask(taskId, taskName, taskPriority, taskDate, taskTime, taskDesc) {
+    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    tasks.push({ taskId, taskName, taskPriority, taskDate, taskTime, taskDesc });
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-// Load Tasks from LocalStorage
-function loadTasksFromLocalStorage() {
+// Load Tasks from localStorage
+function loadTasks() {
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     const taskList = document.getElementById('task-items');
-    taskList.innerHTML = '';
 
-    tasks.forEach(taskText => {
-        const newTask = document.createElement('li');
+    tasks.forEach(task => {
+        const newTask = document.createElement('div');
         newTask.classList.add('task-item');
+        newTask.id = task.taskId;
         newTask.innerHTML = `
-            <span>${taskText}</span>
-            <button class="delete-task-btn" onclick="deleteTask(this)">Delete</button>
+            <div class="task-info">
+                <strong>${task.taskName}</strong><br>
+                <span>${task.taskDesc}</span><br>
+                <span><strong>Due:</strong> ${new Date(task.taskDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} at ${task.taskTime}</span>
+            </div>
+            <button class="delete-task" onclick="deleteTask('${task.taskId}')">Delete</button>
         `;
         taskList.appendChild(newTask);
     });
 }
 
-window.onload = function() {
-    loadTasksFromLocalStorage();
-    initializeCalendar();
-};
-
+// Delete Task
+function deleteTask(taskId) {
+    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    tasks = tasks.filter(task => task.taskId !== taskId);
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+    document.getElementById(taskId).remove();
+}
 
 // Calendar Initialization
 function initializeCalendar() {
-    const calendarEl = document.getElementById('calendar');
-    if (calendarEl) {
-        flatpickr(calendarEl, {
-            inline: true,
-            onChange: function(selectedDates) {
-                console.log('Selected date:', selectedDates);
-            }
-        });
+    if (typeof flatpickr !== "undefined") {
+        const calendarEl = document.getElementById('calendar');
+        if (calendarEl) {
+            flatpickr(calendarEl, {
+                inline: true,
+                onChange: function (selectedDates) {
+                    console.log('Selected date:', selectedDates);
+                }
+            });
+        }
+    } else {
+        console.error("flatpickr is not defined. Make sure you have included the flatpickr library.");
     }
 }
-
-// Initialize Calendar after page load
-window.onload = function() {
-    initializeCalendar();
-};
