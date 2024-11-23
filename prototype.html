@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,7 @@
     <title>Task Manager Prototype</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr" defer></script>
     <script src="script.js" defer></script>
 </head>
 
@@ -22,11 +23,11 @@
         <!-- Login Screen -->
         <div id="login-screen" class="prototype-screen active">
             <h2>Login to Task Manager</h2>
-          <form id="login-form">
-              <input type="text" id="username" placeholder="Username" required><br>
-              <input type="password" id="password" placeholder="Password" required><br>
-              <button type="button" onclick="showMainScreen()">Login</button>
-          </form>
+            <form id="login-form">
+                <input type="text" id="username" placeholder="Username" required><br>
+                <input type="password" id="password" placeholder="Password" required><br>
+                <button type="button" onclick="showMainScreen()">Login</button>
+            </form>
         </div>
 
         <!-- Main Task List Screen -->
@@ -62,10 +63,8 @@
             <h2>Calendar View</h2>
             <div id="calendar"></div> <!-- Placeholder for the dynamic calendar -->
             <button type="button" onclick="showTaskListScreen()">Back to Tasks</button>
-        </div>  
+        </div>
     </section>
-
-    <!-- JavaScript -->
-    <script src="script.js"></script>
 </body>
+
 </html>
