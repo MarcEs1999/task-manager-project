@@ -147,16 +147,3 @@ function initializeCalendar() {
         console.error("flatpickr is not defined. Make sure you have included the flatpickr library.");
     }
 }
-
-// Show Main Screen Functionality (for login)
-function showMainScreen() {
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-    if (username === "testUser" && password === "1234") {
-        document.getElementById('login-screen').classList.remove('active');
-        document.getElementById('task-list-screen').classList.add('active');
-    } else {
-        alert("Incorrect Username or Password. Please try again.");
-    }
-}
