@@ -158,18 +158,53 @@ function deleteTask(taskId) {
     }
 }
 
-// Calendar Initialization
+// Calendar Initialization with Tasks
 function initializeCalendar() {
-    const calendarEl = document.getElementById('calendar');
-    if (typeof flatpickr !== "undefined" && calendarEl) {
-        flatpickr(calendarEl, {
-            inline: true,
-            onChange: function (selectedDates) {
-                console.log('Selected date:', selectedDates);
-            }
+    if (typeof flatpickr !== "undefined") {
+        const calendarEl = document.getElementById('calendar');
+        if (calendarEl) {
+            const tasks = getTasks();
+            const datesWithTasks = tasks.map(task => task.taskDate); // Extract all the task dates
+
+            flatpickr(calendarEl, {
+                inline: true,
+                enable: datesWithTasks, // Enable only dates that have tasks
+                onChange: function (selectedDates) {
+                    displayTasksForDate(selectedDates[0]);
+                }
+            });
+        } else {
+            console.error("Calendar element not found.");
+        }
+    } else {
+        console.error("flatpickr is not defined. Make sure you have included the flatpickr library.");
+    }
+}
+
+// Function to get all the tasks from localStorage
+function getTasks() {
+    return JSON.parse(localStorage.getItem('tasks')) || [];
+}
+
+// Function to display tasks for a selected date
+function displayTasksForDate(date) {
+    const tasks = getTasks();
+    const selectedDate = date.toDateString();
+    const tasksForDate = tasks.filter(task => new Date(task.taskDate).toDateString() === selectedDate);
+
+    let taskDisplay = '';
+    if (tasksForDate.length > 0) {
+        tasksForDate.forEach(task => {
+            taskDisplay += `<li>${task.taskName} - ${task.taskDate.split(' ')[4]} - ${task.taskDesc}</li>`;
         });
     } else {
-        console.error("Flatpickr is not defined or calendar element not found. Make sure you have included the flatpickr library and the calendar element exists.");
+        taskDisplay = '<li>No tasks for this date.</li>';
+    }
+
+    // Assuming there is an element to display tasks, update its innerHTML
+    const taskListForDateEl = document.getElementById('tasks-for-date');
+    if (taskListForDateEl) {
+        taskListForDateEl.innerHTML = taskDisplay;
     }
 }
 
