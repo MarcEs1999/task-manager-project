@@ -155,17 +155,15 @@ function deleteTask(taskId) {
 
 // Calendar Initialization
 function initializeCalendar() {
-    if (typeof flatpickr !== "undefined") {
-        const calendarEl = document.getElementById('calendar');
-        if (calendarEl) {
-            flatpickr(calendarEl, {
-                inline: true,
-                onChange: function (selectedDates) {
-                    console.log('Selected date:', selectedDates);
-                }
-            });
-        }
+    const calendarEl = document.getElementById('calendar');
+    if (typeof flatpickr !== "undefined" && calendarEl) {
+        flatpickr(calendarEl, {
+            inline: true,
+            onChange: function (selectedDates) {
+                console.log('Selected date:', selectedDates);
+            }
+        });
     } else {
-        console.error("flatpickr is not defined. Make sure you have included the flatpickr library.");
+        console.error("Flatpickr is not defined or calendar element not found. Make sure you have included the flatpickr library and the calendar element exists.");
     }
 }
