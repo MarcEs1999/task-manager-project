@@ -33,15 +33,24 @@ function showMainScreen() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    // Updated username and password to match the new credentials
     if (username.trim() === "admin" && password === "1234") {
-        console.log("Login successful"); // Debugging message
         document.getElementById('login-screen').classList.remove('active');
         document.getElementById('task-list-screen').classList.add('active');
     } else {
-        console.log(`Incorrect login. Username: ${username}, Password: ${password}`); // Debugging message
         alert("Incorrect Username or Password. Please try again.");
     }
+}
+
+// Show Add Task Screen
+function showAddTaskScreen() {
+    document.getElementById('task-list-screen').classList.remove('active');
+    document.getElementById('add-task-screen').classList.add('active');
+}
+
+// Show Task List Screen
+function showTaskListScreen() {
+    document.getElementById('add-task-screen').classList.remove('active');
+    document.getElementById('task-list-screen').classList.add('active');
 }
 
 // Add Task Functionality
@@ -78,6 +87,7 @@ function addTask() {
 
         taskList.appendChild(newTask);
         saveTasks(); // Save to localStorage to persist data
+        showTaskListScreen(); // Go back to the task list screen after adding
     }
 }
 
