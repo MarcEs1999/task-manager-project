@@ -1,6 +1,7 @@
 window.onload = function () {
     initializeCalendar();
     loadTasks(); // Load tasks from localStorage when the page loads
+    console.log("Login successful");
 }
 
 // JavaScript to handle tab switching and load content
