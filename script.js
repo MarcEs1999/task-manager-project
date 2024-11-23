@@ -1,4 +1,4 @@
-window.onload = function() {
+window.onload = function () {
     initializeCalendar();
     loadTasks(); // Load tasks from localStorage when the page loads
 }
@@ -34,10 +34,12 @@ function showMainScreen() {
     const password = document.getElementById('password').value;
 
     // Updated username and password to match the new credentials
-    if (username === "admin" && password === "1234") {
+    if (username.trim() === "admin" && password === "1234") {
+        console.log("Login successful"); // Debugging message
         document.getElementById('login-screen').classList.remove('active');
         document.getElementById('task-list-screen').classList.add('active');
     } else {
+        console.log(`Incorrect login. Username: ${username}, Password: ${password}`); // Debugging message
         alert("Incorrect Username or Password. Please try again.");
     }
 }
