@@ -28,7 +28,7 @@ function showMainScreen() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    // Update username and password to the new credentials
+    // Update username and password to match the new credentials
     if (username === "admin" && password === "1234") {
         document.getElementById('login-screen').classList.remove('active');
         document.getElementById('task-list-screen').classList.add('active');
