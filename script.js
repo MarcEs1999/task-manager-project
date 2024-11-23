@@ -160,24 +160,20 @@ function deleteTask(taskId) {
 
 // Calendar Initialization with Tasks
 function initializeCalendar() {
-    if (typeof flatpickr !== "undefined") {
-        const calendarEl = document.getElementById('calendar');
-        if (calendarEl) {
-            const tasks = getTasks();
-            const datesWithTasks = tasks.map(task => task.taskDate); // Extract all the task dates
+    const calendarEl = document.getElementById('calendar');
+    if (typeof flatpickr !== "undefined" && calendarEl) {
+        const tasks = getTasks();
+        const datesWithTasks = tasks.map(task => task.taskDate); // Extract all the task dates
 
-            flatpickr(calendarEl, {
-                inline: true,
-                enable: datesWithTasks, // Enable only dates that have tasks
-                onChange: function (selectedDates) {
-                    displayTasksForDate(selectedDates[0]);
-                }
-            });
-        } else {
-            console.error("Calendar element not found.");
-        }
+        flatpickr(calendarEl, {
+            inline: true,
+            enable: datesWithTasks, // Enable only dates that have tasks
+            onChange: function (selectedDates) {
+                displayTasksForDate(selectedDates[0]);
+            }
+        });
     } else {
-        console.error("flatpickr is not defined. Make sure you have included the flatpickr library.");
+        console.error("Flatpickr is not defined or calendar element not found. Make sure you have included the flatpickr library and the calendar element exists.");
     }
 }
 
