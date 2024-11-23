@@ -54,7 +54,12 @@ function showAddTaskScreen() {
 
 // Show Task List Screen
 function showTaskListScreen() {
+    // Hide all other screens
+    document.getElementById('login-screen').classList.remove('active');
     document.getElementById('add-task-screen').classList.remove('active');
+    document.getElementById('calendar-screen').classList.remove('active');
+
+    // Show task list screen
     document.getElementById('task-list-screen').classList.add('active');
 }
 
@@ -170,14 +175,14 @@ function initializeCalendar() {
 
 // Show Calendar Screen
 function showCalendarScreen() {
-    // Hide the task list screen and add task screen
+    // Hide other screens
+    document.getElementById('login-screen').classList.remove('active');
     document.getElementById('task-list-screen').classList.remove('active');
     document.getElementById('add-task-screen').classList.remove('active');
 
     // Show the calendar screen
     document.getElementById('calendar-screen').classList.add('active');
-    
+
     // Initialize the calendar if not already initialized
     initializeCalendar();
 }
-
