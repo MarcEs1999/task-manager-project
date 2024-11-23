@@ -1,8 +1,12 @@
 window.onload = function () {
-    initializeCalendar();
+    if (typeof flatpickr !== 'undefined') {
+        initializeCalendar();
+    } else {
+        console.error("flatpickr library could not be loaded.");
+    }
     loadTasks(); // Load tasks from localStorage when the page loads
     console.log("Login successful");
-}
+};
 
 // JavaScript to handle tab switching and load content
 function openTab(event, tabId) {
