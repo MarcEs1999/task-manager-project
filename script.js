@@ -167,3 +167,9 @@ function initializeCalendar() {
         console.error("Flatpickr is not defined or calendar element not found. Make sure you have included the flatpickr library and the calendar element exists.");
     }
 }
+
+// Show Calendar Screen
+function showCalendarScreen() {
+    document.getElementById('task-list-screen').classList.remove('active');
+    document.getElementById('calendar-screen').classList.add('active');
+}
