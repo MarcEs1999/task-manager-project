@@ -170,6 +170,14 @@ function initializeCalendar() {
 
 // Show Calendar Screen
 function showCalendarScreen() {
+    // Hide the task list screen and add task screen
     document.getElementById('task-list-screen').classList.remove('active');
+    document.getElementById('add-task-screen').classList.remove('active');
+
+    // Show the calendar screen
     document.getElementById('calendar-screen').classList.add('active');
+    
+    // Initialize the calendar if not already initialized
+    initializeCalendar();
 }
+
