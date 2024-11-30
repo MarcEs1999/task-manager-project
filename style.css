@@ -11,6 +11,8 @@ body {
     flex-direction: column;
 }
 
+/*============================================*/
+
 /* Header Styles */
 header {
     background-color: #1f2833;
@@ -40,6 +42,8 @@ header a img {
 header a img:hover {
     transform: scale(1.05);
 }
+
+/*============================================*/
 
 /* Team Info Section */
 #team-info {
@@ -78,6 +82,8 @@ header a img:hover {
     transform: scale(1.05);
 }
 
+/*============================================*/
+
 /* Tabs Navigation */
 nav ul {
     list-style-type: none;
@@ -112,6 +118,8 @@ nav ul li.active {
     border-bottom: 2px solid #66fcf1;
 }
 
+/*============================================*/
+
 /* Main Content Section */
 main {
     flex: 1;
@@ -124,6 +132,8 @@ main {
     width: 100%;
     text-align: center;
 }
+
+/*============================================*/
 
 /* About Section Styling */
 .about-section {
@@ -141,6 +151,8 @@ main {
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
 }
 
+/*============================================*/
+
 /* Team Overview Section Styling */
 .team-overview {
     margin: 20px;
@@ -156,6 +168,8 @@ main {
     transform: translateY(-5px);
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
 }
+
+/*============================================*/
 
 /* Persona Section Styling */
 .persona {
@@ -175,6 +189,21 @@ main {
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
 }
 
+.persona img {
+    width: 300px;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.persona img:hover {
+    transform: scale(1.05);
+}
+
+/*============================================*/
+
 /* Scenario Section Styling */
 .scenario-section {
     margin: 20px;
@@ -190,6 +219,8 @@ main {
     transform: translateY(-5px);
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
 }
+
+/*============================================*/
 
 /* Storyboard Section Styling */
 .storyboard-section {
@@ -207,6 +238,8 @@ main {
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
 }
 
+/*============================================*/
+
 /* Flowchart Section Styling */
 .flowchart-section {
     margin: 20px;
@@ -222,6 +255,8 @@ main {
     transform: translateY(-5px);
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
 }
+
+/*============================================*/
 
 /* Wireframe Section Styling */
 .wireframe-section {
@@ -239,6 +274,8 @@ main {
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
 }
 
+/*============================================*/
+
 /* Prototype Section Styling */
 .prototype-section {
     margin: 20px;
@@ -255,19 +292,7 @@ main {
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
 }
 
-/* Image styling */
-.persona img {
-    width: 300px;
-    height: auto;
-    border-radius: 12px;
-    object-fit: cover;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease;
-}
-
-.persona img:hover {
-    transform: scale(1.05);
-}
+/*============================================*/
 
 /* Footer */
 footer {
