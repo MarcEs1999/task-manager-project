@@ -28,13 +28,15 @@ header h1 {
     font-family: 'Poppins', sans-serif;
 }
 
-header img {
+header a img {
     border-radius: 50%; /* Make it circular */
     cursor: pointer; /* Indicate it's clickable */
     transition: transform 0.3s ease; /* Add a hover effect */
+    max-width: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-header img:hover {
+header a img:hover {
     transform: scale(1.05); /* Slight zoom on hover */
 }
 
@@ -54,6 +56,7 @@ header img:hover {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    gap: 20px; /* Add spacing between team members */
 }
 
 .team-member {
@@ -67,6 +70,11 @@ header img:hover {
     border-radius: 50%; 
     object-fit: cover;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+    transition: transform 0.3s ease; /* Add hover effect */
+}
+
+.team-member img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
 }
 
 /*===============================================================*/
@@ -87,13 +95,15 @@ nav ul li {
     color: #c5c6c7;
     background-color: #0b0c10;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Add color transition */
     flex: 1 1 auto;
     text-align: center;
+    border-radius: 8px; /* Rounded corners */
 }
 
 nav ul li:hover {
     background-color: #3a3f47;
+    color: #66fcf1; /* Light blue color to indicate interactivity */
 }
 
 nav ul li.active {
@@ -139,92 +149,6 @@ main {
 .persona:hover {
     transform: translateY(-5px);
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
-}
-
-/*===============================================================*/
-
-/* Form Styles for Login and Add Task */
-form {
-    margin: 0 auto;
-    max-width: 400px;
-    background-color: #1f2833;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-}
-
-form input[type="text"],
-form input[type="password"],
-form input[type="number"],
-form input[type="date"],
-form input[type="time"],
-form textarea {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin-bottom: 15px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-form button {
-    background-color: #66fcf1;
-    color: #1f2833;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1.1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 10px;
-    width: 100%;
-}
-
-form button:hover {
-    background-color: #45a29e;
-}
-
-/*===============================================================*/
-
-/* Task List Styles */
-#task-list {
-    background-color: #1f2833;
-    padding: 20px;
-    border-radius: 8px;
-    margin-top: 20px;
-    text-align: left;
-}
-
-#task-items {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-#task-items li {
-    background-color: #2c3e50;
-    margin: 10px 0;
-    padding: 15px;
-    border-radius: 5px;
-    color: #66fcf1;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-}
-
-/*===============================================================*/
-
-/* Calendar Screen Styles */
-#calendar-screen {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #1f2833;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-#calendar-screen img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /*===============================================================*/
