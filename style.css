@@ -136,7 +136,7 @@ main {
 
 /*===============================================================*/
 
-/* About Section Styling */
+/* Section Styling */
 .about-section,
 .team-overview,
 .persona,
@@ -160,6 +160,25 @@ main {
     transform: translateY(-5px);
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
 }
+
+/*===============================================================*/
+
+/* Image styling */
+
+.persona img {
+    width: 300px; /* Adjust the width as needed */
+    height: auto; /* Ensure the aspect ratio is maintained */
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease; /* Add hover effect */
+}
+
+.persona img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+
 
 /*===============================================================*/
 
