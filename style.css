@@ -306,13 +306,24 @@ main {
 
 /* Wireframe Section Styling */
 .wireframe-section {
-    margin: 20px;
+    margin: 40px auto; /* Centers the section and adds some vertical space */
     padding: 25px;
     background-color: #2b3e50;
     border-radius: 12px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 1000px; /* Controls the overall width of the wireframe section */
+}
+
+.wireframe-img {
+    width: 100%;
+    max-width: 900px; /* Limits the image size for consistency */
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    display: block;
+    margin: 20px auto; /* Centers the image and provides vertical spacing */
 }
 
 .wireframe-section:hover {
