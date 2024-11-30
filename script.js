@@ -1,9 +1,4 @@
 window.onload = function () {
-    if (typeof flatpickr !== 'undefined') {
-        initializeCalendar();
-    } else {
-        console.error("flatpickr library could not be loaded.");
-    }
     loadTasks(); // Load tasks from localStorage when the page loads
     console.log("Login successful");
 };
@@ -158,53 +153,11 @@ function deleteTask(taskId) {
     }
 }
 
-// Calendar Initialization with Tasks
-function initializeCalendar() {
-    const calendarEl = document.getElementById('calendar');
-    if (typeof flatpickr !== "undefined" && calendarEl) {
-        const tasks = getTasks();
-        const datesWithTasks = tasks.map(task => task.taskDate); // Extract all the task dates
-
-        flatpickr(calendarEl, {
-            inline: true,
-            enable: datesWithTasks, // Enable only dates that have tasks
-            onChange: function (selectedDates) {
-                displayTasksForDate(selectedDates[0]);
-            }
-        });
-    } else {
-        console.error("Flatpickr is not defined or calendar element not found. Make sure you have included the flatpickr library and the calendar element exists.");
-    }
-}
-
 // Function to get all the tasks from localStorage
 function getTasks() {
     return JSON.parse(localStorage.getItem('tasks')) || [];
 }
 
-// Function to display tasks for a selected date
-function displayTasksForDate(date) {
-    const tasks = getTasks();
-    const selectedDate = date.toDateString();
-    const tasksForDate = tasks.filter(task => new Date(task.taskDate).toDateString() === selectedDate);
-
-    let taskDisplay = '';
-    if (tasksForDate.length > 0) {
-        tasksForDate.forEach(task => {
-            taskDisplay += `<li>${task.taskName} - ${task.taskDate.split(' ')[4]} - ${task.taskDesc}</li>`;
-        });
-    } else {
-        taskDisplay = '<li>No tasks for this date.</li>';
-    }
-
-    // Assuming there is an element to display tasks, update its innerHTML
-    const taskListForDateEl = document.getElementById('tasks-for-date');
-    if (taskListForDateEl) {
-        taskListForDateEl.innerHTML = taskDisplay;
-    }
-}
-
-// Show Calendar Screen
 function showCalendarScreen() {
     // Hide other screens
     document.getElementById('login-screen').classList.remove('active');
@@ -213,7 +166,4 @@ function showCalendarScreen() {
 
     // Show the calendar screen
     document.getElementById('calendar-screen').classList.add('active');
-
-    // Initialize the calendar if not already initialized
-    initializeCalendar();
 }
