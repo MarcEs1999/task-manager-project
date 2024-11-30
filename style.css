@@ -9,9 +9,9 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center align horizontally */
-    justify-content: center; /* Center align vertically */
-    text-align: center; /* Ensure all text is centered */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 /* Header Styles */
@@ -33,18 +33,16 @@ header h1 {
 }
 
 header a img {
-    border-radius: 50%; /* Make it circular */
-    cursor: pointer; /* Indicate it's clickable */
-    transition: transform 0.3s ease; /* Add a hover effect */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
     max-width: 150px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 header a img:hover {
-    transform: scale(1.05); /* Slight zoom on hover */
+    transform: scale(1.05);
 }
-
-/*===============================================================*/
 
 /* Team Info Section */
 #team-info {
@@ -55,14 +53,14 @@ header a img:hover {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     width: 100%;
-    max-width: 1200px; /* Limit the width for better centering */
+    max-width: 1200px;
 }
 
 .team-members {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    gap: 20px; /* Add spacing between team members */
+    gap: 20px;
 }
 
 .team-member {
@@ -73,17 +71,15 @@ header a img:hover {
 .team-member img {
     width: 150px;
     height: 150px;
-    border-radius: 50%; 
+    border-radius: 50%;
     object-fit: cover;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
-    transition: transform 0.3s ease; /* Add hover effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
 }
 
 .team-member img:hover {
-    transform: scale(1.05); /* Slight zoom on hover */
+    transform: scale(1.05);
 }
-
-/*===============================================================*/
 
 /* Tabs Navigation */
 nav ul {
@@ -102,15 +98,15 @@ nav ul li {
     color: #c5c6c7;
     background-color: #0b0c10;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Add color transition */
+    transition: background-color 0.3s ease, color 0.3s ease;
     flex: 1 1 auto;
     text-align: center;
-    border-radius: 8px; /* Rounded corners */
+    border-radius: 8px;
 }
 
 nav ul li:hover {
     background-color: #3a3f47;
-    color: #66fcf1; /* Light blue color to indicate interactivity */
+    color: #66fcf1;
 }
 
 nav ul li.active {
@@ -118,8 +114,6 @@ nav ul li.active {
     font-weight: bold;
     border-bottom: 2px solid #66fcf1;
 }
-
-/*===============================================================*/
 
 /* Main Content Section */
 main {
@@ -129,21 +123,126 @@ main {
     background-color: #1b1e23;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    max-width: 1200px; /* Limit the width for better centering */
+    max-width: 1200px;
     width: 100%;
     text-align: center;
 }
 
-/*===============================================================*/
+/* About Section Styling */
+.about-section {
+    margin: 20px;
+    padding: 25px;
+    background-color: #2b3e50;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-/* Section Styling */
-.about-section,
-.team-overview,
-.persona,
-.scenario-section,
-.storyboard-section,
-.flowchart-section,
-.wireframe-section,
+.about-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+}
+
+/* Team Overview Section Styling */
+.team-overview {
+    margin: 20px;
+    padding: 25px;
+    background-color: #2b3e50;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-overview:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+}
+
+/* Persona Section Styling */
+.persona {
+    margin: 20px;
+    padding: 25px;
+    background-color: #2b3e50;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    gap: 20px;
+}
+
+.persona:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+}
+
+/* Scenario Section Styling */
+.scenario-section {
+    margin: 20px;
+    padding: 25px;
+    background-color: #2b3e50;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.scenario-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+}
+
+/* Storyboard Section Styling */
+.storyboard-section {
+    margin: 20px;
+    padding: 25px;
+    background-color: #2b3e50;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.storyboard-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+}
+
+/* Flowchart Section Styling */
+.flowchart-section {
+    margin: 20px;
+    padding: 25px;
+    background-color: #2b3e50;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.flowchart-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+}
+
+/* Wireframe Section Styling */
+.wireframe-section {
+    margin: 20px;
+    padding: 25px;
+    background-color: #2b3e50;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wireframe-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+}
+
+/* Prototype Section Styling */
 .prototype-section {
     margin: 20px;
     padding: 25px;
@@ -154,33 +253,24 @@ main {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.about-section:hover, 
-.team-overview:hover, 
-.persona:hover {
+.prototype-section:hover {
     transform: translateY(-5px);
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
 }
 
-/*===============================================================*/
-
 /* Image styling */
-
 .persona img {
-    width: 300px; /* Adjust the width as needed */
-    height: auto; /* Ensure the aspect ratio is maintained */
+    width: 300px;
+    height: auto;
     border-radius: 12px;
     object-fit: cover;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease; /* Add hover effect */
+    transition: transform 0.3s ease;
 }
 
 .persona img:hover {
-    transform: scale(1.05); /* Slight zoom on hover */
+    transform: scale(1.05);
 }
-
-
-
-/*===============================================================*/
 
 /* Footer */
 footer {
@@ -192,8 +282,6 @@ footer {
     margin-top: auto;
     width: 100%;
 }
-
-/*===============================================================*/
 
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
