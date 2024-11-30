@@ -28,6 +28,16 @@ header h1 {
     font-family: 'Poppins', sans-serif;
 }
 
+header img {
+    border-radius: 50%; /* Make it circular */
+    cursor: pointer; /* Indicate it's clickable */
+    transition: transform 0.3s ease; /* Add a hover effect */
+}
+
+header img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
 /*===============================================================*/
 
 /* Team Info Section */
