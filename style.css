@@ -9,6 +9,9 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    align-items: center; /* Center align horizontally */
+    justify-content: center; /* Center align vertically */
+    text-align: center; /* Ensure all text is centered */
 }
 
 /* Header Styles */
@@ -17,6 +20,7 @@ header {
     color: white;
     padding: 20px;
     text-align: center;
+    width: 100%;
 }
 
 header h1 {
@@ -28,7 +32,7 @@ header h1 {
     font-family: 'Poppins', sans-serif;
 }
 
-.logo-img {
+header a img {
     border-radius: 50%; /* Make it circular */
     cursor: pointer; /* Indicate it's clickable */
     transition: transform 0.3s ease; /* Add a hover effect */
@@ -36,7 +40,7 @@ header h1 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-.logo-img:hover {
+header a img:hover {
     transform: scale(1.05); /* Slight zoom on hover */
 }
 
@@ -50,6 +54,8 @@ header h1 {
     margin-bottom: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 1200px; /* Limit the width for better centering */
 }
 
 .team-members {
@@ -88,6 +94,7 @@ nav ul {
     justify-content: space-evenly;
     margin: 0;
     background-color: #0b0c10;
+    width: 100%;
 }
 
 nav ul li {
@@ -122,19 +129,34 @@ main {
     background-color: #1b1e23;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    max-width: 1200px; /* Limit the width for better centering */
+    width: 100%;
+    text-align: center;
 }
 
+/*===============================================================*/
+
 /* About Section Styling */
-.about-section {
+.about-section,
+.team-overview,
+.persona,
+.scenario-section,
+.storyboard-section,
+.flowchart-section,
+.wireframe-section,
+.prototype-section {
+    margin: 20px;
+    padding: 25px;
     background-color: #2b3e50;
     border-radius: 12px;
-    padding: 25px;
-    text-align: center;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.about-section:hover {
+.about-section:hover, 
+.team-overview:hover, 
+.persona:hover {
     transform: translateY(-5px);
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
 }
