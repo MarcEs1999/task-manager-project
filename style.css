@@ -333,85 +333,170 @@ main {
 
 /*============================================*/
 
-/* Prototype Section Styling */
+/* Prototype Section Styles */
 .prototype-section {
-    margin: 40px auto; /* Centers the section horizontally and adds vertical spacing */
-    padding: 25px;
+    margin: 20px;
+    padding: 20px;
     background-color: #2b3e50;
     border-radius: 12px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    max-width: 800px; /* Sets a limit on the width of the prototype section */
-    width: 100%;
 }
 
-/* Form Styling */
-.prototype-section form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
+.prototype-section h2 {
+    color: #66fcf1;
+    font-size: 2.5rem;
+    margin-bottom: 25px;
 }
 
-.prototype-section input,
-.prototype-section textarea,
-.prototype-section button {
-    padding: 10px;
-    font-size: 1rem;
-    border-radius: 8px; /* Rounded edges for consistency */
-    border: none;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    width: calc(100% - 20px);
-    max-width: 400px; /* Prevents fields from getting too large */
-}
-
-.prototype-section input:focus,
-.prototype-section textarea:focus {
-    outline: none;
-    border: 2px solid #66fcf1;
-}
-
-/* Button Styling */
-.prototype-section button {
-    background-color: #66fcf1;
-    color: #0b0c10;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    width: 150px; /* Ensures consistency in button size */
-}
-
-.prototype-section button:hover {
-    background-color: #45a29e;
-    transform: scale(1.05);
-}
-
-/* Prototype Screens Styling */
 .prototype-screen {
     display: none;
-    padding: 20px;
 }
 
 .prototype-screen.active {
     display: block;
 }
 
-/* Priority Input Container */
-.priority-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+/* Form Styles for Login and Add Task */
+form {
+    margin: 0 auto;
+    max-width: 400px;
+    background-color: #1f2833;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-/* Calendar Image Styling */
-.prototype-section img {
+form input[type="text"],
+form input[type="password"],
+form input[type="number"],
+form input[type="date"],
+form input[type="time"],
+form textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+form button {
+    background-color: #66fcf1;
+    color: #1f2833;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
     width: 100%;
-    max-width: 600px;
-    border-radius: 12px;
+}
+
+form button:hover {
+    background-color: #45a29e;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: left;
+    color: #c5c6c7;
+}
+
+/* Task List Styles */
+#task-list {
+    background-color: #1f2833;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+#task-items {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#task-items li {
+    background-color: #0b0c10;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    color: #66fcf1;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    margin-bottom: 20px;
+}
+
+/* Button Styles for Screens */
+.prototype-section button {
+    background-color: #66fcf1;
+    color: #1f2833;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    width: auto;
+}
+
+.prototype-section button:hover {
+    background-color: #45a29e;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2c3e50;
+    color: #ffffff;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.task-info {
+    flex-grow: 1;
+}
+
+.delete-task {
+    background-color: #e74c3c;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.delete-task:hover {
+    background-color: #c0392b;
+}
+
+/*=================================================================*/
+
+/* Calendar Screen Styles */
+#calendar-screen {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #1f2833;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+#calendar-screen.active {
+    display: block;
+}
+
+#calendar-screen img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /*============================================*/
