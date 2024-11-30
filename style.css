@@ -255,35 +255,32 @@ main {
 
 /* Storyboard Section Styling */
 .storyboard-section {
-    margin: 20px;
+    margin: 40px auto; /* Centers the section horizontally and adds vertical spacing */
     padding: 25px;
     background-color: #2b3e50;
     border-radius: 12px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
-    max-width: 1080px;
+    max-width: 1000px; /* Ensures consistent width across storyboard sections */
     width: 100%;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: center; /* Centers the text */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .storyboard-section img {
-    width: auto;
+    width: 100%;
+    max-width: 900px; /* Image will not exceed this width */
     height: auto;
-    max-width: 100%;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     display: block;
-    margin: 0 auto;
+    margin: 20px auto; /* Centers the image and adds vertical spacing */
 }
 
 .storyboard-section h2 {
-    text-align: center;
+    text-align: center; /* Centers the heading text */
     color: #66fcf1;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 20px; /* Adds spacing between the heading and the image */
 }
 
 /*============================================*/
