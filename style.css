@@ -335,18 +335,83 @@ main {
 
 /* Prototype Section Styling */
 .prototype-section {
-    margin: 20px;
+    margin: 40px auto; /* Centers the section horizontally and adds vertical spacing */
     padding: 25px;
     background-color: #2b3e50;
     border-radius: 12px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 800px; /* Sets a limit on the width of the prototype section */
+    width: 100%;
 }
 
-.prototype-section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+/* Form Styling */
+.prototype-section form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.prototype-section input,
+.prototype-section textarea,
+.prototype-section button {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 8px; /* Rounded edges for consistency */
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    width: calc(100% - 20px);
+    max-width: 400px; /* Prevents fields from getting too large */
+}
+
+.prototype-section input:focus,
+.prototype-section textarea:focus {
+    outline: none;
+    border: 2px solid #66fcf1;
+}
+
+/* Button Styling */
+.prototype-section button {
+    background-color: #66fcf1;
+    color: #0b0c10;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 150px; /* Ensures consistency in button size */
+}
+
+.prototype-section button:hover {
+    background-color: #45a29e;
+    transform: scale(1.05);
+}
+
+/* Prototype Screens Styling */
+.prototype-screen {
+    display: none;
+    padding: 20px;
+}
+
+.prototype-screen.active {
+    display: block;
+}
+
+/* Priority Input Container */
+.priority-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Calendar Image Styling */
+.prototype-section img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
 }
 
 /*============================================*/
