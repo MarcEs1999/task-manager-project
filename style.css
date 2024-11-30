@@ -260,13 +260,30 @@ main {
     background-color: #2b3e50;
     border-radius: 12px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
-    text-align: center;
+    max-width: 1200px;
+    width: 100%;
+    text-align: center; /* Align text to the center inside the section */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the storyboard section itself */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.storyboard-section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+.storyboard-section img {
+    width: auto;
+    height: auto;
+    max-width: 100%; /* Ensures the image takes full width if needed */
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    display: block;
+    margin: 0 auto; /* Centers the image horizontally */
+}
+
+.storyboard-section h2 {
+    text-align: center; /* Ensures heading text is centered */
+    color: #66fcf1;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 /*============================================*/
