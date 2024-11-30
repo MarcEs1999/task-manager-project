@@ -9,6 +9,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 /*============================================*/
@@ -20,6 +21,7 @@ header {
     padding: 20px;
     text-align: center;
     width: 100%;
+    align-items: center;
 }
 
 header h1 {
@@ -48,13 +50,16 @@ header a img:hover {
 /* Team Info Section */
 #team-info {
     padding: 20px;
-    text-align: center;
     background-color: #20232a;
     margin-bottom: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     width: 100%;
     max-width: 1200px;
+    text-align: center; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
 }
 
 .team-members {
@@ -67,6 +72,7 @@ header a img:hover {
 .team-member {
     text-align: center;
     margin-bottom: 20px;
+    
 }
 
 .team-member img {
@@ -131,6 +137,7 @@ main {
     max-width: 1200px;
     width: 100%;
     text-align: center;
+    align-items: center;
 }
 
 /*============================================*/
