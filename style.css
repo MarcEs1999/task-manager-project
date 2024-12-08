@@ -20,9 +20,11 @@ header {
     color: white;
     padding: 20px;
     text-align: center;
-    width: 100%;
-    align-items: center;
+    width: calc(100% - 40px); /* Adjusted to stay within the viewport with padding */
+    max-width: 1200px;
+    margin: 0 auto; /* Center the header */
     border-radius: 12px;
+    box-sizing: border-box; /* Ensure padding and border are part of the width */
 }
 
 header h1 {
@@ -32,6 +34,7 @@ header h1 {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     margin-bottom: 15px;
     font-family: 'Poppins', sans-serif;
+    word-wrap: break-word; /* Ensure long titles wrap and do not overflow */
 }
 
 header a img {
@@ -130,15 +133,17 @@ nav ul li.active {
 /* Main Content Section */
 main {
     flex: 1;
-    margin: 20px;
+    margin: 20px auto; /* Center horizontally */
     padding: 20px;
     background-color: #1b1e23;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: calc(100% - 40px); /* Stay within viewport */
     max-width: 1200px;
-    width: 100%;
     text-align: center;
     align-items: center;
+    box-sizing: border-box; /* Prevent content from overflowing */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /*============================================*/
