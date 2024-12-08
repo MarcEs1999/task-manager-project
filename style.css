@@ -500,30 +500,17 @@ form label {
 }
 
 /*============================================*/
-/* Statistical Analysis Section */
+/* Statistical Analysis Section Styling */
 .statistical-analysis-section {
-    margin: 20px auto;
+    margin: 40px auto; /* Centers the section horizontally and adds vertical spacing */
     padding: 25px;
     background-color: #2b3e50;
     border-radius: 12px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
-    max-width: 1000px;
+    max-width: 1000px; /* Ensures consistent width across sections */
     width: 100%;
-    text-align: center;
+    text-align: center; /* Centers the text */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.statistical-analysis-section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
-}
-
-.statistical-analysis-section h2 {
-    text-align: center;
-    color: #66fcf1;
-    font-weight: bold;
-    margin-bottom: 20px;
-    font-size: 2rem;
 }
 
 .statistical-analysis-section img {
@@ -533,7 +520,15 @@ form label {
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     display: block;
-    margin: 20px auto;
+    margin: 20px auto; /* Centers the image and provides vertical spacing */
+}
+
+.statistical-analysis-section h2 {
+    text-align: center; /* Centers the heading text */
+    color: #66fcf1;
+    font-weight: bold;
+    margin-bottom: 20px; /* Adds spacing between the heading and the image */
+    font-size: 2rem; /* Matches the storyboard heading size */
 }
 
 .statistical-analysis-section p {
@@ -541,9 +536,13 @@ form label {
     color: #c5c6c7;
     margin-top: 10px;
     line-height: 1.5;
-    text-align: justify;
+    text-align: justify; /* Makes the text block look clean and uniform */
 }
-/*============================================*/
+
+.statistical-analysis-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+}
 
 /* Media Queries for Statistical Analysis */
 @media (max-width: 768px) {
@@ -552,11 +551,21 @@ form label {
     }
 
     .statistical-analysis-section h2 {
-        font-size: 1.8rem;
+        font-size: 1.8rem; /* Slightly smaller heading for medium screens */
     }
 
     .statistical-analysis-section p {
         font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .statistical-analysis-section h2 {
+        font-size: 1.5rem; /* Further reduce heading size for very small screens */
+    }
+
+    .statistical-analysis-section p {
+        font-size: 0.8rem; /* Smaller paragraph text for narrow screens */
     }
 }
 
