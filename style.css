@@ -273,13 +273,13 @@ main {
 }
 
 .storyboard-section img {
-    width: 100%;
-    max-width: 900px; /* Image will not exceed this width */
-    height: auto;
+    width: auto;
+    height: auto; 
+    max-width: 100%; 
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    display: block;
-    margin: 20px auto; /* Centers the image and adds vertical spacing */
+    display: block; 
+    margin: 0 auto; 
 }
 
 .storyboard-section h2 {
@@ -302,6 +302,16 @@ main {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.flowchart-section img{
+    width: auto;
+    height: auto; 
+    max-width: 100%; 
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    display: block; 
+    margin: 0 auto; 
+}
+
 .flowchart-section:hover {
     transform: translateY(-5px);
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
@@ -322,13 +332,13 @@ main {
 }
 
 .wireframe-img {
-    width: 100%;
-    max-width: 900px; /* Limits the image size for consistency */
-    height: auto;
+    width: auto;
+    height: auto; 
+    max-width: 100%; 
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    display: block;
-    margin: 20px auto; /* Centers the image and provides vertical spacing */
+    display: block; 
+    margin: 0 auto; 
 }
 
 .wireframe-section:hover {
@@ -519,13 +529,13 @@ form label {
 }
 
 .statistical-analysis-section img {
-    width: 100%;
-    max-width: 900px; /* Ensures consistent image size */
-    height: auto;
+    width: auto;
+    height: auto; 
+    max-width: 100%; 
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    display: block;
-    margin: 20px auto; /* Centers the image and provides vertical spacing */
+    display: block; 
+    margin: 0 auto; 
 }
 
 .statistical-analysis-section h2 {
