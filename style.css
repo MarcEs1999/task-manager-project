@@ -500,7 +500,67 @@ form label {
 }
 
 /*============================================*/
+/* Statistical Analysis Section */
+.statistical-analysis-section {
+    margin: 20px auto;
+    padding: 25px;
+    background-color: #2b3e50;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    max-width: 1000px;
+    width: 100%;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.statistical-analysis-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+}
+
+.statistical-analysis-section h2 {
+    text-align: center;
+    color: #66fcf1;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.statistical-analysis-section img {
+    width: 100%;
+    max-width: 900px; /* Ensures consistent image size */
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    display: block;
+    margin: 20px auto;
+}
+
+.statistical-analysis-section p {
+    font-size: 1rem;
+    color: #c5c6c7;
+    margin-top: 10px;
+    line-height: 1.5;
+    text-align: justify;
+}
+/*============================================*/
+
+/* Media Queries for Statistical Analysis */
+@media (max-width: 768px) {
+    .statistical-analysis-section img {
+        max-width: 100%; /* Adjust image size for smaller screens */
+    }
+
+    .statistical-analysis-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .statistical-analysis-section p {
+        font-size: 0.9rem;
+    }
+}
+
+/*============================================*/
 /* Footer */
 footer {
     text-align: center;
